@@ -2,13 +2,13 @@ from datetime import datetime
 
 from chalice import Chalice
 
-from models import Question
+from chalicelib.models import Question
 
 app = Chalice(app_name='polls')
 
 
-@app.route('/api/polls/questions', methods=['GET', 'POST'])
-def index():
+@app.route('/polls/questions', methods=['GET', 'POST'])
+def questions():
     request = app.current_request
     if request.method == 'POST':
         question_text = request.json_body['question_text']
@@ -23,3 +23,11 @@ def index():
         for question in questions:
             l.append({'question_text': question.question_text, 'id': question.id, 'pub_date': question.pub_date.strftime('%Y-%m-%d')})
         return l
+
+@app.route('/polls/questions/{question_id}', methods=['GET', 'POST'])
+def questions(question_id):
+
+
+@app.route('/')
+def index():
+    return {'hello': 'duniya'}

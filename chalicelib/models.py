@@ -1,6 +1,6 @@
 from peewee import Model, CharField, DateField
 
-from db import db
+from chalicelib.db import db
 
 class Question(Model):
     question_text = CharField()

@@ -1,4 +1,4 @@
-import settings
+from chalicelib import settings
 from peewee import PostgresqlDatabase
 
 
