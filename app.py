@@ -24,10 +24,6 @@ def questions():
             l.append({'question_text': question.question_text, 'id': question.id, 'pub_date': question.pub_date.strftime('%Y-%m-%d')})
         return l
 
-@app.route('/polls/questions/{question_id}', methods=['GET', 'POST'])
-def questions(question_id):
-
-
 @app.route('/')
 def index():
     return {'hello': 'duniya'}
